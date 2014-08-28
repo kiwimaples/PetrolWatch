@@ -22,6 +22,11 @@
     "browserify": "^5.10.1"
   },
   "dependencies": {
+    "JSONStream": "^0.9.0",
+    "express": "^4.8.6",
+    "feedparser": "^0.19.1",
+    "filed": "^0.1.0",
+    "fuelwatch": "0.0.1",
     "turf-center": "^0.1.1",
     "turf-linestring": "^0.1.1",
     "turf-point": "^0.1.6"
