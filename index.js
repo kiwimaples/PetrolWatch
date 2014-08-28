@@ -1,6 +1,8 @@
 var center = require('turf-center');
 var point = require('turf-point');
 var linestring = require('turf-linestring');
+var _ = require('underscore');
+var priceTemplate = _.template('91 Lead at <%= price %> at <%= address %>');
 
 //auto detect location
 function getLocation() {
@@ -9,6 +11,13 @@ function getLocation() {
     } else {
         alert("Your browser doesn't support your location")
     }
+}
+
+function getPriceInfo() {
+    document.getElementById('priceinfo').innerText = priceTemplate({
+        price: '131.9',
+        address: 'Cnr Amherst Rd & Nicholson Rd, CANNING VALE'
+    });
 }
 
 function showPosition(position) {
@@ -46,4 +55,14 @@ function showPosition(position) {
     marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 }
 
-getLocation();
+switch (location.pathname) {
+    case '/map.html': {
+        getLocation();
+        break;
+    }
+
+    default: {
+        getPriceInfo();
+    }
+}
+

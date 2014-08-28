@@ -27,9 +27,11 @@
     "feedparser": "^0.19.1",
     "filed": "^0.1.0",
     "fuelwatch": "0.0.1",
+    "hyperquest": "^0.3.0",
     "st": "^0.5.1",
     "turf-center": "^0.1.1",
     "turf-linestring": "^0.1.1",
-    "turf-point": "^0.1.6"
+    "turf-point": "^0.1.6",
+    "underscore": "^1.7.0"
   }
 }

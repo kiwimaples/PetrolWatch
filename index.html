@@ -10,23 +10,36 @@
 	<!-- twitter bootstrap css -->
 	<link type ="text/css" rel ="stylesheet"  href = "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.css" >
 
-	<link type ="text/css" rel ="stylesheet"  href = "layout.css" >
+	<link type ="text/css" rel ="stylesheet"  href = "bootstrap/css/bootstrap.css" >
+	
+	
+	<style type="text/css">
+		#maincontent {
+			
+			 width: 600px; height:650px;
+			 margin: 0px auto;
 
+}
+body {text-align: center;
+
+}
+
+	</style>
 </head>
 
 <body>
-	<div id="maincontent">
-		<p>I am a winner!!!</p>
-
+		<div id="maincontent" class="well">
+		<h3 id="priceinfo"></h3>
+		<form>
+			<input type = "button" value="View Map" onClick="location.href='map.html'" />
+		</form>
 	</div>
 	
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" ></script>
 <script src="bundle.js"></script>
 
-<form>
-	<input type = "button" value="Click Map" onClick="location.href='map.html'" />
-</form>
+
 
 </body>
 </html>
