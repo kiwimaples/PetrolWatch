@@ -1,0 +1,27 @@
+{
+  "name": "PetrolWatch",
+  "version": "0.0.0",
+  "description": "Petrol Watch application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify index.js > bundle.js",
+    "dev": "beefy index.js:bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiwiapples/PetrolWatch.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kiwiapples/PetrolWatch/issues"
+  },
+  "homepage": "https://github.com/kiwiapples/PetrolWatch",
+  "devDependencies": {
+    "browserify": "^5.10.1"
+  },
+  "dependencies": {
+    "turf-center": "^0.1.1"
+  }
+}

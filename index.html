@@ -1,83 +1,30 @@
-<!doctype html> 
+<!doctype html>
 <html lang = "en">
 <head>
 	<meta charset="utf-8" />
 	<title>Petrol Data</title>
 
 	<!-- leaflet map info -->
-	<link type ="text/css" rel ="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /> 
+	<link type ="text/css" rel ="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
 	<!-- twitter bootstrap css -->
-	<link type ="text/css" rel ="stylesheet"  href = "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.css" > 
-	
+	<link type ="text/css" rel ="stylesheet"  href = "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.css" >
+
 	<!-- individual styling -->
 	<style type="text/css">
-		
+
 		#map { width: 480px; height: 480px;  }
-		
+
 	</style>
 </head>
 
 <body>
 	<div id="map">
-		
+
 	</div>
 
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" ></script>
-<script>
-//auto detect location
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Your browser doesn't support your location")
-    }
-}
-
-function showPosition(position) {
-	console.log(position)
-	var lat = position.coords.latitude;
-	var lon = position.coords.longitude;
-
-	var markerlat = -37.8333;
-	var markerlon = 145.0000;
-	// create a map in the "map" div, set the view to a given place and zoom
-		var map = L.map('map').setView([lat,lon], 13);
-
-	// add an OpenStreetMap tile layer
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
-
-	//map markers
-	var marker = L.marker([-37.8333, 145.0000]).addTo(map);
-
-	//add circle
-	var circle = L.circle([lat, lon], 100, {
-	    color: 'red',
-	    fillColor: '#f03',
-	    fillOpacity: 1
-	}).addTo(map);
-	}
-
-	function midPosition(lat1, lon1, lat2, lon2) {
-		var R = 6371; // km
-		var lat1 = lat1.toRadians();
-		var lat2 = lat2.toRadians();
-		var mid1 = (lat2-lat1).toRadians();
-		var mid2 = (lon2-lon1).toRadians();
-
-		var a = Math.sin(mid1/2) * Math.sin(mid1/2) +
-		        Math.cos(lat1) * Math.cos(lat2) *
-		        Math.sin(mid2/2) * Math.sin(mid2/2);
-		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-		var d = R * c;
-
-	}
-	getLocation();
-</script>
-
+<script src="bundle.js"></script>
 </body>
 </html>
