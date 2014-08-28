@@ -33,7 +33,7 @@ function showPosition(position) {
     var marker = L.marker([-37.8333, 145.0000]).addTo(map);
 
     // add center point marker
-    L.marker(c.geometry.coordinates).addTo(map);
+    // L.marker(c.geometry.coordinates).addTo(map);
 
     //add circle
     var circle = L.circle([lat, lon], 100, {

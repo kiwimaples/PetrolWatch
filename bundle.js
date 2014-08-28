@@ -21,9 +21,9 @@ function showPosition(position) {
     var markerlon = 145.0000;
 
     // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView([lat,lon], 13);
     var line = linestring([[ lat, lon ], [ markerlat, markerlon ]]);
     var c = center(line);
+    var map = L.map('map').setView(c.geometry.coordinates, 13);
 
     // add an OpenStreetMap tile layer
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -34,7 +34,7 @@ function showPosition(position) {
     var marker = L.marker([-37.8333, 145.0000]).addTo(map);
 
     // add center point marker
-    L.marker(c.geometry.coordinates).addTo(map);
+    // L.marker(c.geometry.coordinates).addTo(map);
 
     //add circle
     var circle = L.circle([lat, lon], 100, {
