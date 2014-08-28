@@ -1,0 +1,7 @@
+#maincontent {
+			 border: 2px solid red;
+			 position:absolute;
+			 width: 500px;
+			 top: 40px;
+			 left: 35px;
+}

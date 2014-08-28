@@ -43,7 +43,6 @@ function showPosition(position) {
         fillOpacity: 1
     }).addTo(map);
 }
-
 getLocation();
 
 },{"turf-center":2,"turf-linestring":5,"turf-point":6}],2:[function(require,module,exports){

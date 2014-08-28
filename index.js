@@ -41,6 +41,9 @@ function showPosition(position) {
         fillColor: '#f03',
         fillOpacity: 1
     }).addTo(map);
+
+    //add comment (needs work)
+    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 }
 
 getLocation();

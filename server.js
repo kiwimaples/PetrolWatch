@@ -18,8 +18,14 @@ app.get('/sample.json', function(req, res) {
     .pipe(res);
 });
 
+//index.html
 app.get('/', function(req, res) {
   filed(__dirname + '/index.html').pipe(res);
+});
+
+//map.html
+app.get('/map.html', function(req, res) {
+  filed(__dirname + '/map.html').pipe(res);
 });
 
 app.get('/bundle.js', function(req, res) {
