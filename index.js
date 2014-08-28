@@ -1,4 +1,6 @@
 var center = require('turf-center');
+var point = require('turf-point');
+var linestring = require('turf-linestring');
 
 //auto detect location
 function getLocation() {
@@ -16,8 +18,11 @@ function showPosition(position) {
 
     var markerlat = -37.8333;
     var markerlon = 145.0000;
+
     // create a map in the "map" div, set the view to a given place and zoom
     var map = L.map('map').setView([lat,lon], 13);
+    var line = linestring([[ lat, lon ], [ markerlat, markerlon ]]);
+    var c = center(line);
 
     // add an OpenStreetMap tile layer
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -26,6 +31,9 @@ function showPosition(position) {
 
     //map markers
     var marker = L.marker([-37.8333, 145.0000]).addTo(map);
+
+    // add center point marker
+    L.marker(c.geometry.coordinates).addTo(map);
 
     //add circle
     var circle = L.circle([lat, lon], 100, {
