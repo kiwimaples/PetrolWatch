@@ -1,5 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var center = require('turf-center');
+var point = require('turf-point');
+var linestring = require('turf-linestring');
 
 //auto detect location
 function getLocation() {
@@ -17,8 +19,11 @@ function showPosition(position) {
 
     var markerlat = -37.8333;
     var markerlon = 145.0000;
+
     // create a map in the "map" div, set the view to a given place and zoom
     var map = L.map('map').setView([lat,lon], 13);
+    var line = linestring([[ lat, lon ], [ markerlat, markerlon ]]);
+    var c = center(line);
 
     // add an OpenStreetMap tile layer
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -27,6 +32,9 @@ function showPosition(position) {
 
     //map markers
     var marker = L.marker([-37.8333, 145.0000]).addTo(map);
+
+    // add center point marker
+    L.marker(c.geometry.coordinates).addTo(map);
 
     //add circle
     var circle = L.circle([lat, lon], 100, {
@@ -38,7 +46,7 @@ function showPosition(position) {
 
 getLocation();
 
-},{"turf-center":2}],2:[function(require,module,exports){
+},{"turf-center":2,"turf-linestring":5,"turf-point":6}],2:[function(require,module,exports){
 var extent = require('turf-extent')
 
 module.exports = function(layer, done){
@@ -191,5 +199,32 @@ module.exports = function flatten(list, depth) {
     }, []);
   }
 };
+
+},{}],5:[function(require,module,exports){
+module.exports = function(coordinates, properties){
+  if(!coordinates) return new Error('No coordinates passed')
+  var linestring = { 
+    "type": "Feature",
+    "geometry": {
+      "type": "LineString",
+      "coordinates": coordinates
+    },
+    "properties": properties
+  }
+  return linestring
+}
+
+},{}],6:[function(require,module,exports){
+module.exports = function(x, y, properties){
+  if(isNaN(x) || isNaN(y)) throw new Error('Invalid coordinates')
+  return {
+    type: "Feature",
+    geometry: {
+      type: "Point",
+      coordinates: [x, y]
+    },
+    properties: properties || {}
+  }
+}
 
 },{}]},{},[1]);
