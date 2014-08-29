@@ -4,7 +4,7 @@ var linestring = require('turf-linestring');
 var request = require('hyperquest');
 var _ = require('underscore');
 var JSONStream = require('JSONStream');
-var priceTemplate = _.template('91 Lead at <%= price %> at <%= address %>');
+var priceTemplate = _.template('91 Lead is cheapest at <%= price %> in <%= address %>');
 
 //auto detect location
 function getLocation() {
@@ -36,14 +36,17 @@ function displayPrice(data) {
 
 function showPosition(position) {
     console.log(position)
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
+    // var lat = position.coords.latitude;
+    // var lon = position.coords.longitude;
 
-    var markerlat = -37.8333;
-    var markerlon = 145.0000;
+    var lat = -32.082959700000000000;
+    var lon = 115.839983299999870000;
+    
+    var markerlat = -32.070959800000000000;
+    var markerlon = 115.843883299999970000;
 
     // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView([lat,lon], 13);
+    var map = L.map('map').setView([lat,lon], 15);
     var line = linestring([[ lat, lon ], [ markerlat, markerlon ]]);
     var c = center(line);
 
@@ -53,20 +56,20 @@ function showPosition(position) {
     }).addTo(map);
 
     //map markers
-    var marker = L.marker([-37.8333, 145.0000]).addTo(map);
+    var marker = L.marker([-32.070959800000000000, 115.843883299999970000]).addTo(map);
 
     // add center point marker
     // L.marker(c.geometry.coordinates).addTo(map);
 
     //add circle
-    var circle = L.circle([lat, lon], 100, {
+    var circle = L.circle([lat, lon], 40, {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 1
     }).addTo(map);
 
-    //add comment (needs work)
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    //add comment 
+    marker.bindPopup("<b>Your Destination!</b><br>Cnr Amherst Rd & Nicholson Rd, CANNING VALE </br> <b>Estimated Time:</b> 3 mins").openPopup();
 }
 
 switch (location.pathname) {
