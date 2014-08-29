@@ -1,45 +1,29 @@
 <!doctype html>
 <html lang = "en">
 <head>
-	<meta charset="utf-8" />
-	<title>Petrol Data</title>
+    <meta charset="utf-8" />
+    <title>Petrol Data</title>
 
-	<!-- leaflet map info -->
-	<link type ="text/css" rel ="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <!-- leaflet map info -->
+    <link type ="text/css" rel ="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
-	<!-- twitter bootstrap css -->
-	<link type ="text/css" rel ="stylesheet"  href = "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.css" >
+    <!-- twitter bootstrap css -->
+    <link type ="text/css" rel ="stylesheet"  href = "bootstrap/css/bootstrap.css" >
+    <link type ="text/css" rel ="stylesheet"  href = "bootstrap/css/bootstrap-responsive.css" >
 
-	<link type ="text/css" rel ="stylesheet"  href = "bootstrap/css/bootstrap.css" >
-	
-	
-	<style type="text/css">
-		#maincontent {
-			
-			 width: 200px; height:200px;
-			 margin: 0px auto;
-
-}
-body {text-align: center;
-
-}
-
-	</style>
+    <!-- custom app css -->
+    <link type="text/css" rel="stylesheet" href="css/app.css">
 </head>
-
 <body>
-		<div id="maincontent" class="well">
-		<h3 id="priceinfo"></h3>
-		<form>
-			<button value="View Map" onClick="location.href='map.html'" />
-		</form>
-	</div>
-	
-
+<div class="section" id="home">
+    <div id="maincontent" class="well">
+    <h3 id="priceinfo"></h3>
+    <a class="btn" href="#map">View Map</a>
+    </div>
+</div>
+<div class="section" id="map">
+</div>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" ></script>
 <script src="bundle.js"></script>
-
-
-
 </body>
 </html>
